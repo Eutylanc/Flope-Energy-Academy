@@ -1,56 +1,99 @@
+/* General styles for the page */
 body {
     font-family: Arial, sans-serif;
     line-height: 1.6;
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 20px;
-}
-.customHeader {
-    background-color: #f4f4f4;
-    padding: 10px;
-    text-align: center;
-    border-radius: 0.5rem;
-}
-.customHeader ul {
-    list-style-type: none;
+    margin: 0;
     padding: 0;
-}
-.customHeader ul li {
-    display: inline;
-    margin: 0 10px;
-}
-.customHeader ul li a {
-    text-decoration: none;
+    background-color: #f9f9f9; /* Soft background color */
     color: #333;
-}
-    body {
-        font-family: 'Arial', sans-serif;
-        line-height: 1.6;
-        background-color: #d9d3d5;
-        color: #333;
-        max-width: 800px;
-        margin: 0 auto;
-        padding: 20px;
+  }
+  
+  /* Header styling */
+  .header {
+    text-align: center;
+    background-color: #ED271D; /* Flope Academy color */
+    color: white;
+    padding: 2rem;
+    border-bottom: 5px solid #F4A259; /* Highlighted bottom border */
+  }
+  
+  .header h1 {
+    font-size: 2.5rem;
+    margin: 0;
+  }
+  
+  .header p {
+    font-size: 1.2rem;
+    margin: 10px 0;
+  }
+  
+  /* Content section */
+  .content {
+    max-width: 800px;
+    margin: 2rem auto;
+    padding: 1rem 2rem;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .content h2 {
+    color: #ED271D;
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    text-align: center;
+  }
+  
+  .content h3 {
+    color: #F4A259;
+    font-size: 1.5rem;
+    margin-top: 1.5rem;
+  }
+  
+  .content p {
+    margin: 1rem 0;
+    text-align: justify;
+  }
+  
+  /* Location styling */
+  .location {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #444;
+    text-align: center;
+    background-color: #f1f1f1;
+    padding: 1rem;
+    border-radius: 8px;
+    margin: 1.5rem 0;
+    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Footer call-to-action */
+  .header:last-of-type {
+    background-color: #F4A259; /* Softer complementary color */
+    color: white;
+    font-size: 1.5rem;
+    text-align: center;
+    padding: 1.5rem;
+    border-top: 5px solid #ED271D;
+  }
+  
+  /* Responsive Design */
+  @media screen and (max-width: 768px) {
+    .header h1 {
+      font-size: 2rem;
     }
-    .header {
-        text-align: center;
-        background-color: #aa7875;
-        color: white;
-        padding: 2rem;
-        
-    }
+  
     .content {
-        background-color: white;
-        padding: 30px;
-        border-radius: 10px;
-        box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-        margin-top: 20px;
+      padding: 1rem;
     }
-    .location {
-        font-weight: bold;
-        color: #2ecc71;
+  
+    .content h2 {
+      font-size: 1.8rem;
     }
-    .emoji {
-        font-size: 2em;
-        margin: 0 10px;
+  
+    .content h3 {
+      font-size: 1.3rem;
     }
+  }
+  

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include('./partials/head.ejs') %>
+
+    <hr>
+
+
+    <%- include('./partials/nav.ejs') %>
+    <body>
+        
+    
+    
+        <section id="lesson1" class="lesson">
+            <h2>Lesson 1: Introduction to Python</h2>
+            <p>Welcome to the first lesson of Python programming. In this lesson, we will cover the basics of Python and how to set up the development environment.</p>
+            <h3>What is Python?</h3>
+            <p>Python is a high-level, interpreted programming language known for its simplicity and readability. It is widely used for web development, data analysis, machine learning, and more.</p>
+            <pre><code>print("Hello, World!")</code></pre>
+            <p>In this example, Python prints "Hello, World!" to the console.</p>
+            
+           
+        </section>
+    
+        <section id="lesson2" class="lesson">
+            <h2>Lesson 2: Variables and Data Types</h2>
+            <p>In this lesson, we will learn about variables and different data types in Python. Variables store data, and Python has several built-in data types to choose from.</p>
+            <h3>Variable Assignment</h3>
+            <p>In Python, you can assign a value to a variable as follows:</p>
+            <pre><code>age = 25</code></pre>
+            <p>The variable <strong>age</strong> now holds the value 25. Python supports different data types such as:</p>
+            <ul>
+                <li><strong>int</strong>: Integer values</li>
+                <li><strong>float</strong>: Decimal values</li>
+                <li><strong>str</strong>: String values</li>
+                <li><strong>bool</strong>: Boolean values (True or False)</li>
+            </ul>
+    
+           
+        </section>
+    
+        <section id="lesson3" class="lesson">
+            <h2>Lesson 3: Functions</h2>
+            <p>In this lesson, we will learn how to define and use functions in Python to organize code and avoid repetition.</p>
+            <h3>Defining a Function</h3>
+            <p>Functions are defined using the <strong>def</strong> keyword:</p>
+            <pre><code>def greet(name):
+        print("Hello, " + name)
+    
+    greet("Alice")</code></pre>
+            <p>This function takes one parameter <strong>name</strong> and prints a greeting. In the above code, the function <strong>greet()</strong> is called with the argument "Alice", which will output "Hello, Alice".</p>
+            
+            <p><a href="/public/pdf/Python-Course.pdf" class="download-link"download="Python-Course.pdf">Download PDF for Full Course</a></p>
+        </section>
+    
+     <%- include('./partials/footer.ejs') %>
+</body>
+</html>

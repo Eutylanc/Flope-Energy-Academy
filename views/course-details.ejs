@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Course Details</title>
+    <link rel="stylesheet" href="/course-details.css">
+</head>
+<body>
+    <div class="course-details-container">
+        <h2>Course Details Form</h2>
+        <form action="/submit-course-details" method="post">
+            <div class="form-group">
+                <label for="courseName">Course Name:</label>
+                <input type="text" id="courseName" name="courseName" required>
+            </div>
+            <div class="form-group">
+                <label for="courseInstructor">Instructor:</label>
+                <input type="text" id="courseInstructor" name="courseInstructor" required>
+            </div>
+            <div class="form-group">
+                <label for="courseDescription">Description:</label>
+                <textarea id="courseDescription" name="courseDescription" rows="4" required></textarea>
+            </div>
+            <div class="form-group">
+                <label for="courseDuration">Duration:</label>
+                <input type="text" id="courseDuration" name="courseDuration" placeholder="e.g., 6 weeks" required>
+            </div>
+            <div class="form-group">
+                <label for="coursePrice">Price:</label>
+                <input type="number" id="coursePrice" name="coursePrice" min="0" placeholder="e.g., 100" required>
+            </div>
+            <button type="submit" class="submit-btn">Submit</button>
+        </form>
+    </div>
+    <script src="/script.js"></script>
+
+    <%- include('./partials/footer.ejs') %>
+    
+</body>
+</html>

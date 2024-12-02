@@ -12,9 +12,10 @@ const isAuthenticated = require('./middleware/authMiddleware');
 const loginRoute = require('./routes/loginRoute');
 const signupRoute = require('./routes/signupRoute');
 const session = require('express-session');
-const mysql = require('mysql2/promise');
-
-
+const courseDetailsRoute = require('./routes/courseDetailsRoute');
+const passport = require('./config/passport');
+const authRoutes = require('./routes/authRoutes');
+const router = express.Router();
 // Express app
 const app = express();
 
@@ -40,6 +41,10 @@ app.use(morgan('dev'));
 app.use(bodyParser.json());
 app.use(methodOverride());
 
+// Initialize passport for handling authentication
+app.use(passport.initialize());
+app.use(passport.session());
+
 // Middleware to simulate a logged-in user (for testing purposes)
 app.use((req, res, next) => {
     if (!req.session.user) {
@@ -50,9 +55,11 @@ app.use((req, res, next) => {
  });
 
 // Routes
-app.use('/courses', courseRoutes);
-app.use('/login', loginRoute);
-app.use('/signup', signupRoute);
+router.use('/courses', courseRoutes);
+router.use('/login', loginRoute);
+router.use('/signup', signupRoute);
+router.use('/course-details', courseDetailsRoute);
+router.use('/auth', authRoutes);
 
 app.get('/', (req, res) => {
     res.render('nonlogin', { title: 'Home' });
@@ -73,20 +80,37 @@ app.get('/courses', (req, res) => {
     res.render('courses', { title: 'courses' });
 });
 
+app.get('/course-details/:slug', (req, res) => {
+    const courseSlug = req.params.slug;
+    // Fetch course details from the database or a data file
+    const courseDetails = courses.find(course => course.slug === courseSlug);
+    if (courseDetails) {
+      res.render('course-details', { course: courseDetails });
+    } else {
+      res.status(404).send('Course not found');
+    }
+  });
+  
 app.get('/home', (req, res) => {
     res.render('home', { title: 'HOME' });
 });
 
-
-app.get('/logout', (req, res) => {
-    req.session.destroy(err => {
-        if (err) {
-            console.error('Error logging out:', err);
-            return res.status(500).send('Unable to log out');
-        }
-        res.redirect('/login');
-    });
+app.get('/courses/python-course', (req, res) => {
+    res.render('python-course')
 });
+app.get('/courses/web-development', (req, res) => {
+    res.render('web-development')
+});
+
+// app.get('/logout', (req, res) => {
+//     req.session.destroy(err => {
+//         if (err) {
+//             console.error('Error logging out:', err);
+//             return res.status(500).send('Unable to log out');
+//         }
+//         res.redirect('/login');
+//     });
+// });
 
 // 404 page
 app.use((req, res) => {
